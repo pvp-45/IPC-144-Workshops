@@ -1,0 +1,112 @@
+/*
+*****************************************************************************
+                          Workshop - #5 (P2)
+Full Name  : Pruthvi Patel
+Student ID#: 170733216
+Email      : ppatel450@myseneca.ca
+Section    : NHH
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+*/
+
+1) Mapping the month integer value to the first three characters of the month name could have been 
+accomplished using one of two possible selection constructs. What are they, and provide a short example of how each would be written in C to display the last two months?
+
+ANS:- Two types selection constructs could have been used here, the first one is the multiple selection construct by using "if ","else" and "else if ", and the other one is the case-by-case selection construct. 
+
+A)Mapping the month integer value to the first three characters of the last two months' name using multiple selection construct:
+if (month==11){
+           
+                printf("NOV\n");
+}
+else if (month==12){
+
+               printf("DEC\n");
+}
+
+In this method, the program will run the first condition if it is true and thus it'll skip the second condition, it'll evaluate the second condition only if the first condition is false. Thus, it'll skip the first condition if the second condition is true.
+
+B)Mapping the month integer value to the first three characters of the last two months' name using case-by-case selection construct:
+switch(month)
+{
+case 11:
+         printf("NOV\n");
+         break;
+case 12:
+         printf("DEC\n");
+         break;
+}
+In this method, the program will run the sequence under the constant which satisfies the condition,that is, if the value of month is 11, then it'll return the output NOV, the break statement will skip the other cases and close the switch construct. Similarly if the value is 12, it'll skip the first case and move to the second case thus returning the output DEC.
+
+2)The logic applied to validate the values entered by the user required iteration. What are the 3 types of iteration constructs? What one did you use for the validation routines, and briefly explain why?
+
+ANS:- There are a total of three kinds of iteration construct:
+A)for loop
+B)while loop
+C)do while loop
+
+Code Example:
+
+                for (i = 1; (i <= LOG_DAYS && i <= 28); i++) {
+
+                    printf("%d-FEB-0%d\n", year, i);
+                   
+                    do {
+                        
+                        printf("   Morning rating (0.0-5.0): ");
+                        scanf("%lf", &morning_ratings);
+                        if (!(morning_ratings >= 0.0 && morning_ratings <= 5.0))
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+
+                        }
+                        else {
+                            tot_morning_ratings += morning_ratings;
+                        }
+                    } while (!(morning_ratings >= 0.0 && morning_ratings <= 5.0));
+
+                    do {
+                        printf("   Evening rating (0.0-5.0): ");
+                        scanf("%lf", &evening_ratings);
+
+                        if (!(evening_ratings >= 0.0 && evening_ratings <= 5.0))
+                        {
+                            printf("      ERROR: Rating must be between 0.0 and 5.0 inclusive!\n");
+                        }
+                        else {
+                            tot_evening_ratings += evening_ratings;
+                        }
+
+                    } while (!(evening_ratings >= 0.0 && evening_ratings <= 5.0));
+                    printf("\n");
+                }
+I used the "do while" construct to validate the routines, the reason behind this is that this iteration construct
+displays it's sequence at least once which gives me an upper hand comparatively using other iteration constructs as I do not need to introduce another variable to continue the loop accepting values from the user and displaying errors accordingly till the condition is false. If i had used "for" loop or "while" loop, I would have been forced to initialize a new variable.
+
+3) Describe what you did to test and debug your program. How did you go about finding where the problems 
+were located (explain how you did this for both syntactic and semantic problems)?
+
+ANS:- Havings bugs while coding is pretty common, I faced a few errors both syntactic and semantic errors while doing this workshop program which I was able to test and debug successfully. 
+
+A) So when I faced a syntactic error, the first thing I did was to test that is to find the error, I did this with the help of the "Error List" option available for all the programmers in the visual studio code, this was very helpful to find syntactic errors as it was very precise and told exactly in which line the error was located. Thus it became very easy for me to debug that error. 
+
+ printf("General Well-being Log\n");
+ printf("======================\n");
+In the above code, I forgot to put a semi colon at the end of the line 1 which gave me a syntactic error and I debugged that after testing it successfully using the above method. 
+
+B)Talking about the semantic error, I find it more difficult to test and debug it comparatively because there's nothing that the "Error List" can provide to solve this bug. It has to be debugged by the programmer only. Thus, I have a habit to run and check my program after every few lines so that it won't be difficult for me to find in which line the error is located. 
+
+  printf("Average morning rating: %.1lf\n", (tot_morning_ratings / LOG_DAYS));
+  printf("Average evening rating: %.1lf\n", (tot_evening_ratings / LOG_DAYS));
+While returning the output of the above code, I came across a semantic error as instead of using the format specifier %.1lf , I used the specifier %d (which is used to display the integer values) to print the float values thus I didn't get the values I was looking for. After figuring out this, I was able to successfully debug the bug by using the correct format specifier.
+
+
+
+
+
+
+
+
