@@ -1,0 +1,26 @@
+Workshop 3 Reflect
+
+1) What did you find to be the most difficult expression you had to code in this workshop? Copy the line of code that you are referring to and explain your answer in detail?
+
+Ans: 
+(type_1 == 'l'|| type_1=='L'), (type_1 == 'B'||type_1=='b'), (size_1 == 'c'||size_1=='C'), (size_1 == 'F'||size_1=='f'), weight_1, weight_1 / GRAMS_IN_LBS, (cream_1 == 'y'||cream_1=='Y'), temp_1, (temp_1 * 1.8) + 32.0);
+
+I found this line to be the most difficult part of this code as it consumed a bit more of my time than the other line of codes. This is because initially it was difficult for me to convert my ideas in code using the logical and relational operators. I had to match the user's/customer's demands and match them with the products available to be served. Moreover, it involved the use of several parentheses which made the        work look a bit complicated than it actually was. Although, after getting the concept of comparing the customer's requirements with the types of coffee available it became easy to write the other lines of code in a similar way.
+
+2) Find one of your coded logical expressions from Part-2 and show how this can be evaluated in two different ways but will produce the same desired result. One version of the statement should apply "deMorgan's Law" and the other will not. 
+
+Ans: 
+a) ((type_1 == 'l' || type_1 == 'L') && (strength_1 == 'm' || strength_1 == 'M'))
+This is the code line which I'll use to show deMorgan's Law using the "!" not operator
+b)  !(!((type_1=='l' && type_2 == 'L') || !(strength_1 == 'm' && strength_1 == 'M')))
+
+The two lines of codes that is (a) and (b) will produce the same output as the "!" i.e the not operator will convert the || to & and produce the same result.
+Basically, it is the same as:-
+!false==true
+
+3) In Part-1,you were instructed to create a variable to store the calculated average product prices, while in Part-2, the displaying of the converted Celsius to Fahrenheit temperature unit was NOT to be stored to a variable. Why do you think this was the preferred approach for both cases?
+
+Ans:
+There can be two reasons behind this. The first one will be that if I had to make a separate variable to store the average of the product prices then I'll just have to simply declare a variable and input a calculation and initialize the variable, but if I talk about creating variable to convert Celsius to Fahrenheit, I'll have to make 3 different variables to convert three different celsius unit to fahrenheit which would be more complicated approach than to just simply calculate using just two operators. The second reason can be that the part 1 involved more operators than the part 2 so it was convenient to store them under a variable than to calculate them on line code.
+
+
