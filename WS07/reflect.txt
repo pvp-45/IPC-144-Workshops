@@ -1,0 +1,66 @@
+*****************************************************************************
+ <assessment name example: Workshop - #7 (Part-2)>
+Full Name : Pruthvi Patel
+Student ID#: 170733216
+Email : ppatel450@myseneca.ca
+Section : NHH
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+1) Describe the benefits and advantages of using user-defined types (structures) in this workshop. You must explain
+your answer using an example from this workshop.
+
+Ans: There are many benefits of using user defined structures. The first one of them is that we can easily store and access values of different types. In this workshop, I used two structures, one to store the information for game and other to store the information of the player. The data type of the members of the structures are integers and characters and that can be the biggest advantage of structures. Moreover, it was very simple to assign values of different types to a single object. To give an example from my code,
+
+struct PlayerInfo
+{
+    int numOflives;
+    char playerSymbol;
+    int numOftreasures;
+    char history[MAXLENGTH];
+
+
+};
+
+This was the structure that I made to store player information of different types. These were the members, and the object that I used to access these members was player. To illutrate further, if I want to access player's lives I can simply write "player.numOflives" and to access the symbol representing the player I can simply write "player.playerSymbol". By this, we can see that it becomes easy to give and access values of different types to a single object.
+
+2) If we enhanced this workshop to keep a history of games played including the endgame results, briefly describe what two major logical changes you would have to make to your program to make this possible? 
+
+Ans: This can be made possible by defining another integer which can be intialized by giving the value 0 and can be increased by 1 everytime each game ends, thus keeping a track of total number of games played including the end game.Then we can define an array to store the results that is the number of treasures the player managed to find everytime. For example, the total number of treasures that the player finds in the first game is stored as the first element of the array representing results. Thus, similarly we can fill the other elements of the array and can make a history of games played everytime. 
+
+
+
+3) What part of this workshop did you spend the most time working on? What did you do to overcome your difficulties?
+
+Ans: The part where I spent the maximum amount of time was to think of the logic to assign symobolic elements to the history array to print "-" for position not visited by the player, "." to represent the position visited which had neither bomb nor treasure in it,"!" to represent the position visited which had bomb in it,"$" to represent the position visited which had treasure in it and "&" to represent the position visited that had both bomb and treasure in it. First I thought of defining the history array with the character data type but then I changed my mind and defined the history array as integer data type. To make it easier for me, I initialized every single element in the history array to 0 and then I ran a loop as follows :
+for (i = 0; i < game.numOfpositions; i++)
+        {
+            if (player.history[i] == 0)
+            {
+                printf("-");
+
+            }
+            else if (player.history[i] == 1)
+            {
+                printf(".");
+
+            }
+            else if (player.history[i] == 2)
+            {
+                printf("!");
+            }
+            else if (player.history[i] == 3)
+            {
+                printf("$");
+            }
+            else if (player.history[i] == 4)
+            {
+                printf("&");
+            }
+        }
+By this loop, I was able to print the respective characters as I could assign any value to the "i" and can print the character that I want to print using conditional statements.
+For example, to print the character that represented both bombs and treasures I just had to simply write "player.history[playerMove] = 4;".
+"playerMove" here was the position that the player went to and thus I could easily change the character of that position to "&".
