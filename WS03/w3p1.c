@@ -1,6 +1,6 @@
 /*
 *****************************************************************************
-                          Workshop - #3 (P2)
+                          Workshop - #3 (P1)
 Full Name  : Pruthvi Patel
 Student ID#: 170733216
 Email      : ppatel450@myseneca.ca
