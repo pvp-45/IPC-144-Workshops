@@ -1,4 +1,16 @@
-Workshop 3 Reflect
+/*
+*****************************************************************************
+                          Workshop - #3 (P2)
+Full Name  : Pruthvi Patel
+Student ID#: 170733216
+Email      : ppatel450@myseneca.ca
+Section    : NHH
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+*/
 
 1) What did you find to be the most difficult expression you had to code in this workshop? Copy the line of code that you are referring to and explain your answer in detail?
 
