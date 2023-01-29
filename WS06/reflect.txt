@@ -1,0 +1,54 @@
+
+*****************************************************************************
+                          Workshop - #6 (P2)
+Full Name  : Pruthvi Patel
+Student ID#: 170733216
+Email      : ppatel450@myseneca.ca
+Section    : NHH
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+
+1. Parallel arrays provide us the ability to group related data. Using what you coded in this workshop, briefly explain how you linked related data for any given item in the dataset? What was the ‘key’ used to accomplish this?
+
+ANS: There were a total of three parallel arrays that I used in this Workshop that is item_cost[i], itemCan_finance[i] and item_priority[i]. I used the variable "i" to link every ith element of each array together. For that I created a "for" loop and kept the parallel arrays inside the loop. The loop was set in such a way that it kept on increasing the value of the "i" simulatneously storing the values inside the arrays and linking arrays with the same value of "i" together. The key that was used to accomplish this was the integer "i" as it held the index values of parallel arrays having elements representing the same thing. Thus different values can be accessed with the help of this key.
+
+2. Why do you think it is common practice to iterate arrays initializing the iterator variable to zero and not to a value of one? Justify your answer using an example from this workshop.
+
+ANS: It is important to iterate arrays initializing the iterator variable to zero as the iterable variable will resemble the index of the arrays and the index location for any element in array always starts with zero and not one. For example, xyz[0] represents the first element of any array named xyz. The zero here is the index number of that array.
+
+
+
+    for (i = 0; (i < num_items); i++)
+    {
+        printf("Item-%d Details:\n", i + 1);
+        do
+        {
+            printf("   Item cost: $");
+            scanf("%lf", &item_cost[i]);
+            if (item_cost[i] < min_item_cost)
+            {
+                printf("      ERROR: Cost must be at least $100.00\n");
+            }
+        } while (item_cost[i] < min_item_cost);
+Here is an example from my code of Workshop 6, I initialized the iterator value as 0 to store item_cost[0] as the first element of the array item-cost[i].
+
+3.How would you describe conceptually what an array is to a child (5-8-year-old)? How would you describe 
+accessing an element in the array? Warning: keep your explanation simple or the child will not understand.
+
+ANS: So my explanation will go as, storing multiple values of the same type in different variables and all of them relating to each other might complicate the code and increase the labour of the coder as well. Thus, to store values of the same type, we often use arrays, arrays not just only stores values of the same type in them but also gives specific location that is index to each of it's element thus making it easy to access the elements whenever we want. Let's take an example of storing grades of different students:
+The first way of doing it is to make different variables for each student and store grades in each of them:
+char student1=A;
+char student2=B;
+char student3=C;
+The second way is by using arrays which will only make use of one variable:
+char grades[] = {A,B,C};
+The second way will take less time and won't make the code complicated if there were many grades to be stored.
+Now, we can access these elemnets by using the index of each element.
+For example:
+To access the grade of the student whose roll number is 1, we write :
+printf(" %c", grades[0]);
+Similarly for other students too we can access the grades in the same way just replacing the index value to one less than the value of the roll number as the roll number starts with 1 but the index of any array always starts with 0.
+
