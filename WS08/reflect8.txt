@@ -1,0 +1,96 @@
+/*
+*****************************************************************************
+                          Workshop - #8 (P2)
+Full Name  : Pruthvi Patel
+Student ID#: 170733216
+Email      : ppatel450@myseneca.ca
+Section    : NHH
+
+Authenticity Declaration:
+I declare this submission is the result of my own work and has not been
+shared with any other student or 3rd party content provider. This submitted
+piece of work is entirely of my own creation.
+*****************************************************************************
+*/
+
+1. Structure data types can demand a lot of memory (for example the "ReportData" structure). Without digging into advanced memory management (for example padding), how many bytes of memory would the "ReportData" structure minimally require? How could we improve the passing of this information to functions? Use the function "displayReportData" from this workshop in your explanation.
+
+ANS: It is true because structure data types usually takes a lot of memory because it contains several data types like integer and double which takes up a lot of space. One such example of a structure named ReportData that I used in this workshop proves this point. The structure conatined:
+
+struct ReportData {
+
+    int sku;
+    double productPrice;
+    int calories;
+    double weight_in_pounds;
+    double weight_in_kg;
+    int weight_in_g;
+    double totalServings;
+    double costPerServing;
+    double caloriesCost;
+
+
+
+};
+
+It had 3 integer values and 6 double floating values. One integer takes up a total space of 4 bytes and one double can take upto 8 bytes space,thus, the total space that this structure was taking up was 3*4 + 6*8 = 60 bytes.
+
+Thus in order to use structures considering memory space in mind, we can make good use of the function "displayReportData". The function's parameter looked like this:
+void displayReportData(const struct ReportData data, const int cheapestProduct);
+
+This function was used to send the content of structure "ReportData" in order to print the data that was stored in it. In order to save some memory space, instead of sending the structure's value we could have passed the structure's address which takes up a lot lesser space than the whole structure's value itself. This is because there is only one address for any value be it a whole structure or an array of different values. Addresses are stored at one single memory location while different values are stored in different memory locations. Therefore, it is better to pass by address rather than passing by value. This function parameter could have been written as:
+
+void displayReportData(const struct ReportData* data,const int* cheapestProduct);
+
+The "* data" means value at data. This is used to view the value at a particular address.
+
+
+2.The CatFoodInfo structure and the ReportData structure contain common members. How could the "ReportData" structure be improved? Show the new and improved "ReportData" structure
+with your changes, then show how you would modify your code in the function "displayReportData". Specifically, show how you would need to modify the printf statement that displays the data.
+
+ANS: There were four memebers which were common in both CatFoodInfo and ReportData structures. Two of them were of integer data type and other two were of type double.
+
+struct CatFoodInfo {
+    int sku;
+    double productPrice;
+    int calories;
+    double weight_in_pounds;
+
+};
+
+struct ReportData {
+
+    int sku;
+    double productPrice;
+    int calories;
+    double weight_in_pounds;
+    double weight_in_kg;
+    int weight_in_g;
+    double totalServings;
+    double costPerServing;
+    double caloriesCost;
+
+};
+
+As we can see, sku,productPrice,calories and weight_in_pounds were common in both the structures, to make changes to ReportData and improve this structure we can just simply make CatFoodInfo a memeber of the ReportData Structure in order to avoid repetion of values. For example:
+
+struct ReportData {
+
+    struct CatFoodInfo information;
+    double weight_in_kg;
+    int weight_in_g;
+    double totalServings;
+    double costPerServing;
+    double caloriesCost;
+
+};
+
+Some appropriate changes should also be made in the printf statement used to print the values of the ReportData structure which looked like: 
+
+printf("%07d %10.2lf %10.1lf %10.4lf %9d %8d %8.1lf %7.2lf %7.5lf", data.sku, data.productPrice, data.weight_in_pounds, data.weight_in_kg, data.weight_in_g, data.calories, data.totalServings, data.costPerServing, data.caloriesCost);
+
+Now, it would look like:
+
+printf("%07d %10.2lf %10.1lf %10.4lf %9d %8d %8.1lf %7.2lf %7.5lf", data.information.sku, data.information.productPrice, data.information.weight_in_pounds, data.weight_in_kg, data.weight_in_g, data.calories, data.totalServings, data.costPerServing, data.caloriesCost);
+
+
