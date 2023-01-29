@@ -16,6 +16,7 @@ piece of work is entirely of my own creation.
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
+#include<string.h>
 
 #include "core.h"
 
@@ -131,6 +132,7 @@ char inputCharOption(const char charactersList[])
         {
             clearInputBuffer();
             printf("ERROR: Character must be one of [%s]: ", charactersList);
+
         }
 
 
@@ -168,12 +170,14 @@ void inputCString(char* stringC, int minChar, int maxChar)
     do {
 
         scanf("%[^\n]", inputString);
+       
         clearInputBuffer();
 
-        for (length = 0; inputString[length] != '\0'; length++)
+       /* for (length = 0; inputString[length] != '\0'; length++)
         {
             ;
-        }
+        }*/
+        length = strlen(inputString);
 
         if (minChar == maxChar && length != minChar)
         {
@@ -192,11 +196,12 @@ void inputCString(char* stringC, int minChar, int maxChar)
 
         else if (length <= maxChar && length >= minChar)
         {
-            for (i = 0; i < length; i++)
+            for (i = 0; inputString[i]!='\0'; i++)
             {
                 stringC[i] = inputString[i];
 
             }
+            stringC[i] = '\0';
             flag = 0;
 
         }
@@ -293,3 +298,50 @@ void displayFormattedPhone(const char* mobilestringC)
     return;
 }
 
+//deosnot return a value, but does return a C string via the 1st argument parameter pointer and receives three arguments
+void inputCstring(char* stringC, int minChar, int maxChar)
+{
+    char inputString[123];
+    int length = 0;
+    int flag = 1;
+    int i;
+
+
+    do {
+
+        scanf("%[^\n]", inputString);
+        clearInputBuffer();
+
+        for (length = 0; inputString[length] != '\0'; length++)
+        {
+            ;
+        }
+
+        if (minChar == maxChar && length != minChar)
+        {
+            printf("Invalid %d-digit number! Number: ", minChar);
+        }
+
+        else if (length > maxChar)
+        {
+            printf("Invalid %d-digit number! Number: ", minChar);
+        }
+
+        else if (length < minChar)
+        {
+            printf("Invalid %d-digit number! Number: ", minChar);
+        }
+
+        else if (length <= maxChar && length >= minChar)
+        {
+            for (i = 0; i < length; i++)
+            {
+                stringC[i] = inputString[i];
+
+            }
+            flag = 0;
+
+        }
+    } while (flag == 1);
+
+}

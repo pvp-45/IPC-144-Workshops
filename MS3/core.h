@@ -69,6 +69,8 @@ void inputCString(char* stringC, int minChar, int maxChar);
 //doesnot return a value and receives one argument
 void displayFormattedPhone(const char* mobilestringC);
 
+//deosnot return a value, but does return a C string via the 1st argument parameter pointer and receives three arguments
+void inputCstring(char* stringC, int minChar, int maxChar);
 
 
 
