@@ -1,0 +1,104 @@
+1. Given the following C statements:
+double price1 = 10.10, price2 = 10.12, price3 = 10.15;
+int cents1 = (int)(price1 * 100);
+int cents2 = (int)(price2 * 100);
+int cents3 = (int)(price3 * 100);
+printf("%d 10.10 = %.15lf\n", cents1, price1);
+printf("%d 10.12 = %.15lf\n", cents2, price2);
+printf("%d 10.15 = %.15lf\n", cents3, price3);
+Briefly explain why the cents2 variable doesn't properly represent the total cents of price2.
+
+ANS:-The reason behind the cents2 variable not showing the precised value is because of the fact that
+there is only a certain limit of decimal values that double data type can store. If the digits after the 
+decimal point are more in number then there are chances that the variable won't show the precised 
+value.For example, if we run the same command changing the number of decimal digits from 15 to 2, then 
+we will get the value we are looking for.Moreover, in this example, the value 10.12 was stored upto 15 decimal 
+digits that is 10.119999999999999 and after multiplying it by 100 it became 1011.9999999... , the last step
+converted the double type to int and erased all the digits after the decimal point thus giving the value 1011.
+
+
+2. You had to use integer division (/) to get the number of coins and the modulus (%) operator to easily obtain the 
+remainder amount after each coin denomination calculation. Let's assume this program needed to be modified 
+to only determine the breakdown of paper bills ($50, $20, $10, $5). Provide the few lines of code that would be 
+required to demonstrate how the $20 denomination would be calculated (use your solution variables in your 
+example)
+ 
+ANS:-Code to print the number of $20 notes that are required for the total payment worth $365.5700
+
+#include <stdio.h>
+int main()
+{
+int notes;
+double total,remainder1;
+total=365.5700;
+notes = total / 20;
+total = (total * 100);
+remainder1 = (int)total % (20 * 100);
+remainder1 = remainder1 / 100;
+total = total / 100;
+printf("Number of twenty dollar notes:%d",notes);
+return 0;
+}
+
+Output:-
+Number of twenty dollar notes:18
+
+3. Displaying total cents in the format of dollars and cents (ex: 7245 to $72.45) required converting (casting) an 
+integer to a floating-point type (along with a simple calculation). Without changing any variable data types, 
+show three (3) different ways to accomplish the same outcome (use your solution variables in your example). 
+If you are having problems thinking of how to approach this, think about how an expression can be promoted or 
+narrowed in several ways based on explicit casting, coercion, and how each operand plays a role in this 
+determination.
+
+ANS:FIRST WAY:
+
+
+#include <stdio.h>
+int main()
+{
+    
+    double dollars,total;
+    total=36557;
+    
+    dollars=total/100;
+    printf("%.lf cents in dollars is $%.2lf",total,dollars);
+    return 0;
+}
+
+Output:-
+
+36557 cents in dollars is $365.57
+
+
+SECOND WAY:
+#include <stdio.h>
+int main()
+{
+   int total;
+   double dollars;
+   total=36557*100;
+   
+   dollars=total;
+   dollars=total/100;
+   total=total/100;
+   dollars=dollars/100;
+   printf("%d cents in dollars is $%.2lf",total,dollars);
+   return 0;
+}
+    
+Output:-
+
+36557 cents in dollars is $365.57
+
+
+The first way shows how to convert cents to dollars in a normal way by assigning double data type to both the 
+variables. The second way shows to convert the same with the help of promotion method.
+
+
+
+
+
+
+
+
+
